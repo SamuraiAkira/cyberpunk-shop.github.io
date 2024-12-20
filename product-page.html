@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товар</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            background-color: #1a1a1a;
+            font-family: 'Arial', sans-serif;
+            color: #e1e1e1;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #00ffcc;
+            padding: 15px;
+            margin: 15px 0;
+            max-width: 30%;
+        }
+        h2, h3{
+            color: #ffcc00;
+        }
+        img{
+            height: 300px;
+            width: 300px;
+            align-self: center;
+        }
+        p{
+            color: #00ffcc;
+        }
+        .button{
+            background: #121212;
+            width: 45%;
+            padding: 12px;
+            border: 1px solid #b60404;
+            color: #00ffcc;
+            align-self: center;
+        }
+        .button:hover {
+            background-color: #b60404;
+            border: 1px solid #00ffcc;
+            color: #ffcc00;
+        }
+        ::selection{
+            background: #b60404;
+        }
+    </style>
+</head>
+<body class="cyberpunk">
+
+    <div class="container">
+        <header>
+            <h2 id="product-title"></h2>
+        </header>
+
+        <div class="product-details">
+            <img id="product-image" alt="">
+            <p id="product-description"></p>
+            <h3 id="product-price"></h3>
+            <button class="button">Купить сейчас</button>
+        </div>
+    </div>
+    <script>
+        const products = {
+            1: {
+                title: "Коврик для мышки",
+                image: "img/product1.jpg",
+                description: "Комфортный коврик для мышки с ярким изображением из мира киберпанка. Поверхность обеспечивает гладкое движение мыши, а резиновая основа предотвращает скольжение.",
+                price: "1500 руб."
+            },
+            2: {
+                title: "Кружка",
+                image: "img/product2.jpg",
+                description: "Кружка с уникальным дизайном, вдохновленным киберпанком. Изготовлена из высококачественного керамики и идеально подходит для горячих напитков. Подарите себе или своим друзьям атмосферу будущего в каждую чашку!",
+                price: "2500 руб."
+            },
+            3: {
+                title: "Мягкая игрушка Ройса",
+                image: "img/product3.jpg",
+                description: "Очаровательная мягкая игрушка Ройса из киберпанка станет отличным компаньоном для поклонников игры. Изготовлена из приятных на ощупь материалов, она станет ярким дополнением к интерьеру и уютным подарком.",
+                price: "2000 руб."
+            },
+            4: {
+                title: "Игровая мышка",
+                image: "img/product4.jpg",
+                description: "Играйте как никогда раньше с нашей игровой мышкой с дизайном в стиле киберпанк. Высокая чувствительность и эргономичная форма обеспечивают комфорт во время длительных игровых сессий. Вперед в будущее!",
+                price: "6000 руб."
+            },
+            5: {
+                title: "Коллекционный брелок",
+                image: "img/product5.jpg",
+                description: "Каждый фанат киберпанка захочет иметь этот коллекционный брелок! Яркий и стильный, он отлично подойдёт для ключей или рюкзака, добавляя нотку кибернетики в повседневную жизнь.",
+                price: "10000 руб."
+            },
+            6: {
+                title: "Мягкая игрушка Травма тим",
+                image: "img/product6.jpg",
+                description: "Мягкая игрушка Травма тим — отличный выбор для фанатов киберпанка. Эта игрушка не только мягкая и приятная на ощупь, но и выполнена в ярком дизайне, который точно привлечет внимание.",
+                price: "2000 руб."
+            },
+            7: {
+                title: "Брелок",
+                image: "img/product7.jpg",
+                description: "Стильный брелок с киберпанковыми элементами станет отличным аксессуаром и поможет выделиться из толпы. Компактный и лёгкий, он идеально подойдёт для ваших ключей или рюкзака.",
+                price: "500 руб."
+            }
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+        
+        if (productId && products[productId]) {
+            document.getElementById('product-title').innerText = products[productId].title;
+            document.getElementById('product-image').src = products[productId].image;
+            document.getElementById('product-image').alt = products[productId].title;
+            document.getElementById('product-description').innerText = products[productId].description;
+            document.getElementById('product-price').innerText = products[productId].price;
+        }
+    </script>
+
+</body>
+</html>
